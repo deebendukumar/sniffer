@@ -1,12 +1,9 @@
 package com.multitask;
-
 import java.io.UnsupportedEncodingException;
 import java.util.Locale;
 import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.function.Supplier;
-
-
 
 public class AddStringMessage {
 	

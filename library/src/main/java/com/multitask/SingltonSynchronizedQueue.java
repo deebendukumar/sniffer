@@ -2,7 +2,6 @@ package com.multitask;
 
 
 
-
 import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.atomic.AtomicBoolean;
@@ -14,12 +13,13 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public class SingltonSynchronizedQueue {
 	
 	
-	public static final int RESIDENT_QUEUE_SIZE = 999999999;
+	public static final int RESIDENT_QUEUE_SIZE = 5;
 	private static final Object object = new Object();
 	static Queue<String> queue = new ConcurrentLinkedQueue<String>();
 	private static volatile SingltonSynchronizedQueue instance = null;
 	private AtomicBoolean atLocked = new AtomicBoolean(false);
-	Consumer consumer=new Consumer();
+	
+ 
 	private SingltonSynchronizedQueue() {
 	}
 
@@ -44,20 +44,18 @@ public class SingltonSynchronizedQueue {
 			if(queue.size()<RESIDENT_QUEUE_SIZE) {
 			queue.add(value);
 			
-			consumer.run();
-					
-			}
 			
-			
-			
+		
+			}	
 		}
+	
 	}
 
-	// Retrieves and removes the head of this queue, or returns null if this
-	// queue is empty.
+
 	public static String pollData() {
 		String data = queue.poll();
 		return data;
+		
 	}
 	
 	public static int size() {
