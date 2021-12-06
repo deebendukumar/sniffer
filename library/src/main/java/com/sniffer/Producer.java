@@ -33,6 +33,8 @@ public class Producer extends ProcessingThread {
         /**
          * produce
          */
+
+
         handler.incrementCount(tenant.getName());
         if (handler.getCount(tenant.getName()) >= THROUGHPUT) {
             try {

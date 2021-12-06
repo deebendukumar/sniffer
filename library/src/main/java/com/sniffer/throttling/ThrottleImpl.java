@@ -24,6 +24,6 @@ public class ThrottleImpl implements Throttler {
             public void run() {
                 handler.reset(tenant.getName());
             }
-        }, 1000, throughput);
+        }, 0, 1000);
     }
 }
