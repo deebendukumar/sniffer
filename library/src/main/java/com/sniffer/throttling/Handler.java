@@ -3,13 +3,14 @@ package com.sniffer.throttling;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.lang.invoke.MethodHandles;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicLong;
 
 public final class Handler {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(Handler.class);
+    private static final Logger logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass().getSimpleName());
     private Map<String, AtomicLong> map = new ConcurrentHashMap<>();
 
     public void addTenant(String name) {
@@ -25,7 +26,6 @@ public final class Handler {
     }
 
     public void reset(String name) {
-        LOGGER.debug("Resetting the map");
         System.out.println("Resetting the map, throughout [" + getCount(name) + "]");
         map.replaceAll((k, v) -> new AtomicLong(0));
     }

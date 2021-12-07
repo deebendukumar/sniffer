@@ -30,19 +30,15 @@ public class Producer extends ProcessingThread {
     }
 
 
-	@Override
+    @Override
     public void process() {
         String s = "Lorem Ipsum is simply dummy text of the printing and typesetting industry.";
         try {
-            queue.enqueue(HexUtil.toHexString(s.getBytes()));
-            handler.incrementCount(tenant.getName());
-            while (handler.getCount(tenant.getName()) >= THROUGHPUT) {
-				/*
-				 * synchronized(this) { this.wait(1000); }
-				 */
-                /**
-                 * thread should go into sleep mode
-                 */
+            if (handler.getCount(tenant.getName()) < THROUGHPUT) {
+                queue.enqueue(HexUtil.toHexString(s.getBytes()));
+                handler.incrementCount(tenant.getName());
+            } else {
+                Thread.sleep(10);
             }
         } catch (InterruptedException e) {
             e.printStackTrace();

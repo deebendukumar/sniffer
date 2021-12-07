@@ -52,7 +52,7 @@ public abstract class ProcessingThread implements Runnable {
 
     public abstract void process();
 
-    public void start() {
+    public void start() throws InterruptedException {
         if (!isProcessing()) { // i.e. is initialising or finished
             setProcessingStatus(PROC_INITIALISING);
             termException = null;
@@ -60,6 +60,7 @@ public abstract class ProcessingThread implements Runnable {
             processingThread = new Thread(this);
             processingThread.setName(generateIndexedThreadName());
             processingThread.start();
+            processingThread.join();
             while (isInitialising()) {
                 Thread.yield(); // we're waiting for the proc thread to start
             }
@@ -99,10 +100,6 @@ public abstract class ProcessingThread implements Runnable {
         }
     }
 
-    public void join() throws InterruptedException {
-    	Thread.currentThread().join();
-    }
-    
     public String getThreadName() {
         return PROCESSING_THREAD_NAME;
     }
