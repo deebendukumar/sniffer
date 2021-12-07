@@ -29,13 +29,17 @@ public class Producer extends ProcessingThread {
         timer.start();
     }
 
-    @Override
+
+	@Override
     public void process() {
         String s = "Lorem Ipsum is simply dummy text of the printing and typesetting industry.";
         try {
             queue.enqueue(HexUtil.toHexString(s.getBytes()));
             handler.incrementCount(tenant.getName());
             while (handler.getCount(tenant.getName()) >= THROUGHPUT) {
+				/*
+				 * synchronized(this) { this.wait(1000); }
+				 */
                 /**
                  * thread should go into sleep mode
                  */

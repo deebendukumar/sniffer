@@ -99,6 +99,10 @@ public abstract class ProcessingThread implements Runnable {
         }
     }
 
+    public void join() throws InterruptedException {
+    	Thread.currentThread().join();
+    }
+    
     public String getThreadName() {
         return PROCESSING_THREAD_NAME;
     }
