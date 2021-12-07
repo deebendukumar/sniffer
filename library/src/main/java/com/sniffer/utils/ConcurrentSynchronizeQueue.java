@@ -43,7 +43,9 @@ public class ConcurrentSynchronizeQueue {
             Object first = null;
             if (size() > 0) {
                 first = queue.poll();
+               
             }
+            System.err.println("read");
             return first;
         } catch (InterruptedException ex) {
             throw new InterruptedException("unable to lock for read");

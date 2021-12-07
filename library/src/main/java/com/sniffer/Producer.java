@@ -11,7 +11,7 @@ import org.slf4j.LoggerFactory;
 public class Producer extends ProcessingThread {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(Producer.class);
-
+    
     private static Integer instance = 0;
     private final Integer THROUGHPUT = 1000;
 
@@ -30,15 +30,32 @@ public class Producer extends ProcessingThread {
 
     @Override
     public void process() {
-        /**
-         * produce
-         */
-
-
+      
+		/**
+		 * produce
+		*/    	
+    	 String s="helloAddStringMehelloAddStringMehelloAddStringMehelloAddStringMe";
+		 
+ 		for(int i=0;i<=THROUGHPUT;i++) {
+ 			try {
+				queue.enqueue(s);
+			} catch (IndexOutOfBoundsException | InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+ 			System.err.println("add");
+ 			
+ 		}
+ 		 try {
+			System.err.println(queue.size() +"insert");
+		} catch (InterruptedException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
         handler.incrementCount(tenant.getName());
         if (handler.getCount(tenant.getName()) >= THROUGHPUT) {
             try {
-                this.wait(5);
+                this.wait(1000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
