@@ -56,6 +56,7 @@ public class ConcurrentSynchronizeQueue {
     public void enqueue(Object obj) throws IndexOutOfBoundsException, InterruptedException {
         try {
             queue.add(obj);
+            System.err.println("input");
         } catch (Exception ex) {
             throw new InterruptedException("unable to lock for write");
         } finally {
