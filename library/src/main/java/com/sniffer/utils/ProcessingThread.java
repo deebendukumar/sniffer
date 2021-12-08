@@ -60,7 +60,6 @@ public abstract class ProcessingThread implements Runnable {
             processingThread = new Thread(this);
             processingThread.setName(generateIndexedThreadName());
             processingThread.start();
-            processingThread.join();
             while (isInitialising()) {
                 Thread.yield(); // we're waiting for the proc thread to start
             }

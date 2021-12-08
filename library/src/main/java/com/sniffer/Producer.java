@@ -14,7 +14,7 @@ public class Producer extends ProcessingThread {
     private static final Logger LOGGER = LoggerFactory.getLogger(Producer.class);
 
     private static Integer instance = 0;
-    private final Integer THROUGHPUT = 1000;
+    private final Integer THROUGHPUT = 100;
 
     private ConcurrentSynchronizeQueue queue = null;
     private Handler handler = null;

@@ -26,6 +26,7 @@ public class ConcurrentSynchronizeQueue {
         } catch (Exception ex) {
             throw new InterruptedException("unable to lock for read");
         } finally {
+            Thread.yield();
         }
     }
 
@@ -35,6 +36,7 @@ public class ConcurrentSynchronizeQueue {
         } catch (Exception ex) {
             throw new InterruptedException("unable to lock for read");
         } finally {
+            Thread.yield();
         }
     }
 
@@ -43,23 +45,22 @@ public class ConcurrentSynchronizeQueue {
             Object first = null;
             if (size() > 0) {
                 first = queue.poll();
-               
             }
-            System.err.println("read");
             return first;
         } catch (InterruptedException ex) {
             throw new InterruptedException("unable to lock for read");
         } finally {
+            Thread.yield();
         }
     }
 
     public void enqueue(Object obj) throws IndexOutOfBoundsException, InterruptedException {
         try {
             queue.add(obj);
-            System.err.println("input");
         } catch (Exception ex) {
             throw new InterruptedException("unable to lock for write");
         } finally {
+            Thread.yield();
         }
     }
 
@@ -69,6 +70,7 @@ public class ConcurrentSynchronizeQueue {
         } catch (Exception ex) {
             throw new InterruptedException("unable to lock for write");
         } finally {
+            Thread.yield();
         }
     }
 
