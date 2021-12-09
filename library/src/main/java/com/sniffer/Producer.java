@@ -1,13 +1,19 @@
 package com.sniffer;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Queue;
+import java.util.Timer;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.sniffer.throttling.Handler;
 import com.sniffer.throttling.Tenant;
 import com.sniffer.throttling.ThrottleImpl;
 import com.sniffer.utils.ConcurrentSynchronizeQueue;
 import com.sniffer.utils.HexUtil;
 import com.sniffer.utils.ProcessingThread;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 public class Producer extends ProcessingThread {
 
@@ -26,6 +32,7 @@ public class Producer extends ProcessingThread {
         handler = new Handler();
         tenant = new Tenant("Producer" + ++instance, THROUGHPUT, handler);
         timer = new ThrottleImpl(THROUGHPUT, tenant, handler);
+        
         timer.start();
     }
 
@@ -34,9 +41,23 @@ public class Producer extends ProcessingThread {
     public void process() {
         String s = "Lorem Ipsum is simply dummy text of the printing and typesetting industry.";
         try {
+        	
+        	
+        	
             if (handler.getCount(tenant.getName()) < THROUGHPUT) {
+            	long startTime=System.currentTimeMillis();
+            	System.err.println(startTime+"  start");
                 queue.enqueue(HexUtil.toHexString(s.getBytes()));
                 handler.incrementCount(tenant.getName());
+                long endTime=System.currentTimeMillis();
+                
+                System.err.println(endTime+"  end");
+                System.err.println(endTime-startTime);
+               long l=(1000/THROUGHPUT)-(endTime-startTime);
+              System.err.println(l);
+             
+                Thread.sleep(6);
+                System.err.println(queue.size());
             } else {
                 Thread.sleep(10);
             }
@@ -44,4 +65,6 @@ public class Producer extends ProcessingThread {
             e.printStackTrace();
         }
     }
+    
+	
 }

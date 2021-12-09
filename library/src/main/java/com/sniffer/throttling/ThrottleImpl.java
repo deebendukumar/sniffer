@@ -22,7 +22,9 @@ public class ThrottleImpl implements Throttler {
 
             @Override
             public void run() {
+            	System.err.println(tenant.getName());
                 handler.reset(tenant.getName());
+               
             }
         }, 0, 1000);
     }
