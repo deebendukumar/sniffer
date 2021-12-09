@@ -63,17 +63,8 @@ public class ConcurrentSynchronizeQueue {
             Thread.yield();
         }
     }
-    
-    public long enqueueTime(Object obj) throws IndexOutOfBoundsException, InterruptedException {
-        try {
-            queue.add(obj);
-            return 1231;
-        } catch (Exception ex) {
-            throw new InterruptedException("unable to lock for write");
-        } finally {
-            Thread.yield();
-        }
-    }
+   
+  
 
     public void remove(Object obj) throws InterruptedException {
         try {

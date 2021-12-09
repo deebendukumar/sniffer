@@ -1,9 +1,6 @@
 package com.sniffer;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Queue;
-import java.util.Timer;
+import java.time.Instant;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -40,21 +37,21 @@ public class Producer extends ProcessingThread {
 	public void process() {
 		String s = "Lorem Ipsum is simply dummy text of the printing and typesetting industry.";
 		try {
-
 			if (handler.getCount(tenant.getName()) < THROUGHPUT) {
 				long startTime = System.currentTimeMillis();
-				System.err.println(startTime + "  start");
+				
 				queue.enqueue(HexUtil.toHexString(s.getBytes()));
 				handler.incrementCount(tenant.getName());
+				
 				long endTime = System.currentTimeMillis();
-
-				System.err.println(endTime + "  end");
-				System.err.println(endTime - startTime);
-				long l = (1000 / THROUGHPUT) - (endTime - startTime);
-				System.err.println(l);
-
-				Thread.sleep(6);
-				System.err.println(queue.size());
+				long diff = endTime = startTime;
+				
+				long l = 10L;
+				
+				if(diff <= (1000 / THROUGHPUT)) {
+					l = (1000 / THROUGHPUT) - (endTime - startTime);
+				} 
+				Thread.sleep(l);
 			} else {
 				Thread.sleep(10);
 			}

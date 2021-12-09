@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="org.pcap4j.core.PcapsTest" time="0.254" tests="17" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="org.pcap4j.core.PcapsTest" time="0.232" tests="17" errors="0" skipped="0" failures="0">
   <properties>
     <property name="sun.desktop" value="windows"/>
     <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
@@ -17,7 +17,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="IN"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-11.0.13\bin"/>
-    <property name="sun.java.command" value="C:\Users\YATIND~1.SIN\AppData\Local\Temp\surefire10107431509328503678\surefirebooter11670524426053404332.jar C:\Users\yatinder.singh\AppData\Local\Temp\surefire10107431509328503678 2021-12-09T18-03-45_921-jvmRun1 surefire14200173832146319755tmp surefire_08555468612644402260tmp"/>
+    <property name="sun.java.command" value="C:\Users\YATIND~1.SIN\AppData\Local\Temp\surefire11322032621524404274\surefirebooter2385786141187006561.jar C:\Users\yatinder.singh\AppData\Local\Temp\surefire11322032621524404274 2021-12-09T20-25-56_095-jvmRun1 surefire6206120718864323808tmp surefire_017106141336476903144tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="E:\WorkSpace\sniffer\pcap4j-core\target\test-classes;E:\WorkSpace\sniffer\pcap4j-core\target\classes;C:\Users\yatinder.singh\.m2\repository\net\java\dev\jna\jna\5.3.1\jna-5.3.1.jar;C:\Users\yatinder.singh\.m2\repository\org\slf4j\slf4j-api\1.7.26\slf4j-api-1.7.26.jar;C:\Users\yatinder.singh\.m2\repository\ch\qos\logback\logback-core\1.0.0\logback-core-1.0.0.jar;C:\Users\yatinder.singh\.m2\repository\ch\qos\logback\logback-classic\1.0.0\logback-classic-1.0.0.jar;C:\Users\yatinder.singh\.m2\repository\junit\junit\4.10\junit-4.10.jar;C:\Users\yatinder.singh\.m2\repository\org\hamcrest\hamcrest-core\1.1\hamcrest-core-1.1.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -33,7 +33,7 @@
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
-    <property name="surefire.real.class.path" value="C:\Users\YATIND~1.SIN\AppData\Local\Temp\surefire10107431509328503678\surefirebooter11670524426053404332.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\YATIND~1.SIN\AppData\Local\Temp\surefire11322032621524404274\surefirebooter2385786141187006561.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="11.0.13+10-LTS-370"/>
@@ -60,21 +60,21 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="55.0"/>
   </properties>
-  <testcase name="testFindAllDevs" classname="org.pcap4j.core.PcapsTest" time="0.242"/>
-  <testcase name="testLookupDev" classname="org.pcap4j.core.PcapsTest" time="0"/>
-  <testcase name="testOpenOffline" classname="org.pcap4j.core.PcapsTest" time="0"/>
-  <testcase name="testOpenDead" classname="org.pcap4j.core.PcapsTest" time="0"/>
-  <testcase name="testGetNifByString" classname="org.pcap4j.core.PcapsTest" time="0"/>
-  <testcase name="testLibVersion" classname="org.pcap4j.core.PcapsTest" time="0.001"/>
-  <testcase name="testStrError" classname="org.pcap4j.core.PcapsTest" time="0"/>
-  <testcase name="testDataLinkNameToVal" classname="org.pcap4j.core.PcapsTest" time="0"/>
-  <testcase name="testDataLinkValToDescription" classname="org.pcap4j.core.PcapsTest" time="0.005"/>
-  <testcase name="testDataLinkValToName" classname="org.pcap4j.core.PcapsTest" time="0"/>
-  <testcase name="testDataLinkTypeToDescription" classname="org.pcap4j.core.PcapsTest" time="0"/>
-  <testcase name="testOpenDeadWithTimestampPrecision" classname="org.pcap4j.core.PcapsTest" time="0.002"/>
-  <testcase name="testDataLinkTypeToName" classname="org.pcap4j.core.PcapsTest" time="0"/>
+  <testcase name="testOpenDeadWithTimestampPrecision" classname="org.pcap4j.core.PcapsTest" time="0"/>
+  <testcase name="testDataLinkTypeToDescription" classname="org.pcap4j.core.PcapsTest" time="0.005"/>
   <testcase name="testToBpfStringInetAddress" classname="org.pcap4j.core.PcapsTest" time="0"/>
   <testcase name="testToBpfStringMacAddress" classname="org.pcap4j.core.PcapsTest" time="0"/>
-  <testcase name="testGetNifByInetAddress" classname="org.pcap4j.core.PcapsTest" time="0.002"/>
+  <testcase name="testDataLinkTypeToName" classname="org.pcap4j.core.PcapsTest" time="0"/>
+  <testcase name="testDataLinkNameToVal" classname="org.pcap4j.core.PcapsTest" time="0.001"/>
+  <testcase name="testDataLinkValToDescription" classname="org.pcap4j.core.PcapsTest" time="0"/>
+  <testcase name="testGetNifByInetAddress" classname="org.pcap4j.core.PcapsTest" time="0"/>
+  <testcase name="testDataLinkValToName" classname="org.pcap4j.core.PcapsTest" time="0"/>
   <testcase name="testOpenOfflineWithTimestampPrecision" classname="org.pcap4j.core.PcapsTest" time="0"/>
+  <testcase name="testOpenOffline" classname="org.pcap4j.core.PcapsTest" time="0"/>
+  <testcase name="testStrError" classname="org.pcap4j.core.PcapsTest" time="0"/>
+  <testcase name="testLookupDev" classname="org.pcap4j.core.PcapsTest" time="0.001"/>
+  <testcase name="testLibVersion" classname="org.pcap4j.core.PcapsTest" time="0.001"/>
+  <testcase name="testGetNifByString" classname="org.pcap4j.core.PcapsTest" time="0"/>
+  <testcase name="testOpenDead" classname="org.pcap4j.core.PcapsTest" time="0"/>
+  <testcase name="testFindAllDevs" classname="org.pcap4j.core.PcapsTest" time="0.219"/>
 </testsuite>
