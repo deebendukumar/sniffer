@@ -50,7 +50,10 @@ public class Producer extends ProcessingThread {
 				
 				if(diff <= (1000 / THROUGHPUT)) {
 					l = (1000 / THROUGHPUT) - (endTime - startTime);
-				} 
+				} else {
+					l = 2L;
+				}
+				System.err.println("producer process");
 				Thread.sleep(l);
 			} else {
 				Thread.sleep(10);
