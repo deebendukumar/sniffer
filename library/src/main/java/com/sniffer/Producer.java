@@ -53,7 +53,7 @@ public class Producer extends ProcessingThread {
 				} else {
 					l = 2L;
 				}
-				System.err.println("producer process");
+//				System.err.println("producer process");
 				Thread.sleep(l);
 			} else {
 				Thread.sleep(10);

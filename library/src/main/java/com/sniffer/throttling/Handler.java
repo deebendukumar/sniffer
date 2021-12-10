@@ -20,13 +20,13 @@ public final class Handler {
     public void incrementCount(String name) {
         map.get(name).incrementAndGet();
     }
-   
+
     public long getCount(String name) {
         return map.get(name).get();
     }
 
     public void reset(String name) {
-        System.out.println("Resetting the map, throughout [" + getCount(name) + "]");
+        System.out.println("Resetting the map, throughout [ " + name + " ] [" + getCount(name) + "]");
         map.replaceAll((k, v) -> new AtomicLong(0));
     }
 }
